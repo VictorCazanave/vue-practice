@@ -7,11 +7,11 @@
       <p v-else-if="error">{{ error }}</p>
       <div v-else>
         <img
-          v-if="game.cover.url"
+          v-if="game.cover"
           :src="game.cover.url"
           :alt="game.name"/>
         <p v-if="releaseDate">Release date: {{ releaseDate | formatDate }}</p>
-        <ul v-if="game.screenshots.length">
+        <ul v-if="game.screenshots">
           <li
             v-for="screenshot in game.screenshots"
             :key="screenshot.cloudinary_id">
@@ -49,7 +49,7 @@ export default {
     },
   },
   watch: {
-    // Fetch again if the route changes
+    // Call fetch() again if the route changes
     $route: 'fetch',
   },
   created: function () {
@@ -57,6 +57,10 @@ export default {
   },
   methods: {
     fetch: function () {
+      // Reinitialize data (useful when changing route in URL bar)
+      this.fetching = true;
+      this.game = {};
+      this.error = null;
       API.get(this.$route.params.id)
         .then((res) => {
           this.game = res.data[0];

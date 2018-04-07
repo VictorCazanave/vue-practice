@@ -2,13 +2,13 @@
   <page
     title="Search"
     subtitle="Search for video games using IGBD.com API.">
-    <div class="search">
+    <div class="search-page">
       <form
-        class="search__form"
-        @submit="search">
+        class="search-page__form"
+        @submit.prevent="search">
         <input
           v-model="input"
-          class="search__form__input"
+          class="search-page__form__input"
           type="search"/>
       </form>
       <p v-if="fetching">
@@ -17,16 +17,16 @@
       <div v-else-if="fetched">
         <p
           v-if="error"
-          class="search__error">
+          class="search-page__error">
           {{ error }}
         </p>
         <ul
           v-else-if="games.length"
-          class="search__results">
+          class="search-page__results">
           <li
             v-for="game in games"
             :key="game.id"
-            class="search__results__item">
+            class="search-page__results__item">
             <game v-bind="game"/>
           </li>
         </ul>
@@ -55,11 +55,34 @@ export default {
       fetched: false,
     };
   },
+  watch: {
+    $route: function () {
+      const name = this.$route.params.name;
+      if (name) {
+        this.input = name;
+        this.fetch(name);
+      }
+    },
+  },
+  created: function () {
+    const name = this.$route.params.name;
+    if (name) {
+      this.input = name;
+      this.fetch(name);
+    }
+  },
   methods: {
     search: function () {
+      const name = this.input;
+      if (name) {
+        this.$router.push({ name: 'search', params: { name } });
+        this.fetch(name);
+      }
+    },
+    fetch: function (name) {
       this.fetching = true;
       this.fetched = false;
-      API.search(this.input)
+      API.search(name)
         .then((res) => {
           this.games = res.data;
         })
@@ -76,7 +99,7 @@ export default {
 </script>
 
 <style lang="scss">
-.search {
+.search-page {
   &__form {
     margin-bottom: 40px;
 
