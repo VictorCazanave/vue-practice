@@ -1,4 +1,4 @@
-# vue-practice
+# Vue Practice
 
 
 It's not innovative. It's not useful. It's not beautiful. It's just a random project to learn and practice [Vue.js](https://vuejs.org).
@@ -34,9 +34,11 @@ npm test
 
 * [ES6 classes VS Vue component](https://github.com/vuejs/vue/issues/2371)
 
-## Router
+### Router
 
 * [Doc](https://router.vuejs.org/en/)
+* [Optional param](https://stackoverflow.com/questions/47824660/optional-param-in-vuejs-router)
+* [watch $route VS beforeRouteUpdate](https://stackoverflow.com/questions/47184331/difference-between-beforerouteupdate-and-watching-route-vue-js)
 
 ### HTTP
 
@@ -46,4 +48,8 @@ npm test
 
 * [Doc](https://vuejs.org/v2/guide/filters.html)
 * [How to format date for display](https://forum.vuejs.org/t/how-to-format-date-for-display/3586)
+
+### Proxy
+
+* [CORS issue](https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe)
 
