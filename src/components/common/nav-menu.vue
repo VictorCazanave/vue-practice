@@ -5,7 +5,7 @@
         <router-link to="/">Home</router-link>
       </li>
       <li class="nav-menu__list__item">
-        <router-link to="search">Search</router-link>
+        <router-link to="/search">Search</router-link>
       </li>
     </ul>
   </nav>

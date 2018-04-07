@@ -86,13 +86,14 @@ export default {
   }
 
   &__results {
-    padding: 0 40px;
+    padding: 0;
     text-align-last: left;
     list-style: none;
 
     &__item {
-      padding: 0 20px 20px;
+      padding: 0 0 20px;
       border-bottom: 1px solid grey;
+
       &:first-child {
         border-top: 1px solid grey;
       }

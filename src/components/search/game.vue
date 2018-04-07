@@ -1,27 +1,26 @@
 <template>
-  <div>
+  <div class="game">
     <h3>{{ name }}</h3>
-    <p v-if="releaseDate">Release date: {{ releaseDate | formatDate }}</p>
     <img
       v-if="cover.url"
       :src="cover.url"
-      :alt="name"/>
+      :alt="name"
+      class="game__image"/>
+    <router-link :to="link">Details</router-link>
   </div>
 </template>
 
 <script>
-import moment from 'moment';
-
 export default {
   name: 'Game',
   props: {
+    id: {
+      type: Number,
+      required: true,
+    },
     name: {
       type: String,
       required: true,
-    },
-    first_release_date: {
-      type: Number,
-      default: null,
     },
     cover: {
       type: Object,
@@ -31,13 +30,18 @@ export default {
     },
   },
   computed: {
-    releaseDate: function () {
-      return this.first_release_date ? moment(this.first_release_date) : null;
+    link: function () {
+      return { name: 'game', params: { id: this.id } };
     },
   },
 };
 </script>
 
 <style lang="scss">
-
+.game {
+  &__image {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
 </style>
