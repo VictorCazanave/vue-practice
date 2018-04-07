@@ -1,7 +1,7 @@
 # vue-practice
 
 
-It's not innovative. It's not useful. It's not beautiful. It's just a random project to learn and practice Vue.js.
+It's not innovative. It's not useful. It's not beautiful. It's just a random project to learn and practice [Vue.js](https://vuejs.org).
 
 ## Build Setup
 
@@ -27,3 +27,23 @@ npm run e2e
 # run all tests
 npm test
 ```
+
+## Tips & Links
+
+### Syntax
+
+* [ES6 classes VS Vue component](https://github.com/vuejs/vue/issues/2371)
+
+## Router
+
+* [Doc](https://router.vuejs.org/en/)
+
+### HTTP
+
+* [Vue.js REST API Consumption with Axios](https://alligator.io/vuejs/rest-api-axios/)
+
+### Filters
+
+* [Doc](https://vuejs.org/v2/guide/filters.html)
+* [How to format date for display](https://forum.vuejs.org/t/how-to-format-date-for-display/3586)
+
