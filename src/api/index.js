@@ -11,8 +11,10 @@ const http = axios.create({
 });
 
 export default {
-  search(game) {
-    // console.log(process.env.API_KEY);
-    return http.get(`/games/?search=${game}&limit=10&fields=name,first_release_date,cover`);
+  search(name) {
+    return http.get(`/games/?search=${name}&limit=10&fields=name,cover`);
+  },
+  get(id) {
+    return http.get(`/games/${id}?fields=*`);
   },
 };
