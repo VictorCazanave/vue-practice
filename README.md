@@ -1,6 +1,7 @@
 # vue-practice
 
-A random project to learn and practice Vue.js.
+
+It's not innovative. It's not useful. It's not beautiful. It's just a random project to learn and practice Vue.js.
 
 ## Build Setup
 
