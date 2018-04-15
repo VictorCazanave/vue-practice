@@ -85,6 +85,8 @@ export default {
       API.search(name)
         .then((res) => {
           this.games = res.data;
+          // Store games
+          this.$store.commit('addGames', this.games);
         })
         .catch((err) => {
           this.error = err.response.data;

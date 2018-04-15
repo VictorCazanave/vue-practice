@@ -12,7 +12,8 @@ const http = axios.create({
 
 export default {
   search(name) {
-    return http.get(`/games/?search=${name}&limit=10&fields=name,cover`);
+    // return http.get(`/games/?search=${name}&limit=10&fields=name,cover`);
+    return http.get(`/games/?search=${name}&limit=10&fields=*`);
   },
   get(id) {
     return http.get(`/games/${id}?fields=*`);

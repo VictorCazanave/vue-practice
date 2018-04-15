@@ -61,16 +61,27 @@ export default {
       this.fetching = true;
       this.game = {};
       this.error = null;
-      API.get(this.$route.params.id)
-        .then((res) => {
-          this.game = res.data[0];
-        })
-        .catch((err) => {
-          this.error = err.response.data;
-        })
-        .finally(() => {
-          this.fetching = false;
-        });
+
+      const id = this.$route.params.id;
+      const storedGame = this.$store.state.games[id];
+
+      if (storedGame) {
+        this.game = storedGame;
+        this.fetching = false;
+      } else {
+        API.get(id)
+          .then((res) => {
+            this.game = res.data[0];
+            // Store game
+            this.$store.commit('addGame', this.game);
+          })
+          .catch((err) => {
+            this.error = err.response.data;
+          })
+          .finally(() => {
+            this.fetching = false;
+          });
+      }
     },
   },
 };
