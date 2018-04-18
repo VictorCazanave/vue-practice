@@ -53,3 +53,46 @@ npm test
 
 * [CORS issue](https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe)
 
+## Visual Studio Code
+
+Finding the right config to setup ESLint/Prettier with .vue files was a bit tricky.
+
+### Extensions
+
+* Auto Close Tag
+* Auto Rename Tag
+* Color Picker
+* Debugger for Chrome
+* DotENV
+* ESLint
+* IntelliSense for CSS class names in HTML
+* Material Icon Theme
+* Rainbow Brackets
+* Sublime Text Keymaps
+* Theme - Seti Monokai
+* Vetur
+
+### User Settings
+
+```json
+{
+    "workbench.iconTheme": "material-icon-theme",
+    "sublimeTextKeymap.promptV3Features": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.snippetSuggestions": "top",
+    "editor.tabSize": 2,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        {
+            "language": "vue",
+            "autoFix": true
+        }
+    ],
+    "eslint.autoFixOnSave": true,
+    "eslint.alwaysShowStatus": true,
+    "vetur.format.defaultFormatter.js": "none"
+}
+```
